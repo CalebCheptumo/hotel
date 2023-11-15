@@ -4,10 +4,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
 
 public class LoginController {
 
@@ -17,16 +13,30 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    @FXML
-    private void handleLogin(ActionEvent event) {
-        // Your existing code here...
+    private EmployeeManagementApp mainApp;
+
+    public void setMainApp(EmployeeManagementApp mainApp) {
+        this.mainApp = mainApp;
     }
 
-    private void openMainDashboard() {
-        // Your existing code here...
+    @FXML
+    private void handleLogin(ActionEvent event) {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        // Hardcoded username and password for demonstration purposes
+        if (username.equals("admin") && password.equals("admin")) {
+            mainApp.showMainDashboard();
+        } else {
+            showAlert("Invalid Credentials", "Please enter valid username and password.");
+        }
     }
 
     private void showAlert(String title, String content) {
-        // Your existing code here...
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

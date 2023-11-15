@@ -1,6 +1,14 @@
-<!-- This file can contain the main dashboard layout and functionalities -->
-<!-- Similar structure to the login form, but with different components based on your requirements -->
-<!-- You can customize this later based on your needs -->
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="10">
-    <Label text="Welcome to the Main Dashboard!" styleClass="title"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="10" fx:controller="MainDashboardController">
+    <Label text="Employee Management System" styleClass="title"/>
+
+    <HBox spacing="10">
+        <Button text="Employee Management" onAction="#openEmployeeManagement"/>
+        <Button text="Scheduling" onAction="#openScheduling"/>
+    </HBox>
 </VBox>
